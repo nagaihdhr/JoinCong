@@ -1,0 +1,11 @@
+<input type='hidden' id='viewname' value='member'>
+<div>
+<%= link_to '戻る', joinus_path %>
+<span>参加しましょう</span><br />
+</div>
+<div>
+<span id='msgarea'><%= @ctl.message %></span>
+</div>
+<div id='adtlist'>
+<%= render partial: 'layouts/member', collection: @members %>
+</div>

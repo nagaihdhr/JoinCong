@@ -1,0 +1,20 @@
+<input type='hidden' id='viewname' value='mecha'>
+<div>
+<%= link_to '戻る', joinus_path %>
+<span>音響</span>
+<span><%= @count %></span>
+<input type='button' value='URL'>
+<input type='button' value='ログ'>
+</div>
+<div>
+<%= render partial: 'layouts/message', collection: @messages %>
+<br />
+<input type='text' id='msgbox' size='25'>
+<input type='button' id='btnsend' value='送信'>
+</div>
+<div>
+<span id='msgarea'><%= @ctl.message %></span>
+</div>
+<div id='adtlist'>
+<%= render partial: 'layouts/attendant', collection: @attendants %>
+</div>

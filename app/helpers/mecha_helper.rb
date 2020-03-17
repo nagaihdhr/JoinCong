@@ -1,0 +1,2 @@
+module MechaHelper
+end

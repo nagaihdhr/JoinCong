@@ -1,0 +1,12 @@
+<input type='hidden' id='viewname' value='stuff'>
+<div>
+<%= link_to '戻る', joinus_path %>
+<%= @stfname %>
+<span><%= @count %></span>
+</div>
+<div>
+<span id='msgarea'><%= @ctl.message %></span>
+</div>
+<div id='adtlist'>
+<%= render partial: 'layouts/attendant', collection: @attendants %>
+</div>

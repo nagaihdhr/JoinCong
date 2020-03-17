@@ -1,0 +1,11 @@
+<input type='hidden' id='viewname' value='ninzu'>
+<div>
+<%= link_to '戻る', member_path %>
+<%= params[:mbrname] %>
+</div>
+<div>
+<form action='attend' mechod='post'>
+<span>あなた以外に聞いている人の数は？</span>
+<input type='text' name='mbrsutoday' value= "<%= params[:mbrsu].to_i - 1 %>" size='3'>人
+<input type='submit' value='確定'>
+</div>
