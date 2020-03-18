@@ -1,6 +1,6 @@
 <input type='hidden' id='viewname' value='attend'>
 <div>
-<%= link_to '離席', member_leave_path(atdid: @atd_id) %>
+<%= link_to '離席', member_leave_path(mbrid: @mbr_id) %>
 <span id='atdname'><%= @atdname %></span>
 <input type='button' id='btnatend' value='挙手'>
 <span><%= @count %></span>

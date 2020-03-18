@@ -26,11 +26,11 @@ class MemberController < ApplicationController
     else
       atd = Attend.create(member_id: id.to_i, status: 0, mbrsutoday: @sankasu.to_i)
     end
-    @atd_id = atd[:id]
+    @mbr_id = id
 
-    @attendant = Attendant.find_by(id: @atd_id.to_i)
+    @attendant = Attendant.find_by(member_id: @mbr_id.to_i)
     text = render_to_string partial: 'layouts/attendant', collection: [@attendant]
-    ActionCable.server.broadcast 'room_channel', message: ['add', @atd_id, text]
+    ActionCable.server.broadcast 'room_channel', message: ['add', @mbr_id, text]
 
     session[:attendant_id] = atd[:id]
 
@@ -39,12 +39,12 @@ class MemberController < ApplicationController
   end
 
   def leave
-    atd_id = params[:atdid]
-    rec = Attend.find_by(id: atd_id.to_i)
+    mbr_id = params[:mbrid]
+    rec = Attend.find_by(member_id: mbr_id.to_i)
     if rec != nil then
       rec.destroy
     end
-    ActionCable.server.broadcast 'room_channel', message: ['del', atd_id]
+    ActionCable.server.broadcast 'room_channel', message: ['del', mbr_id]
     redirect_to :action => 'show'
   end
 end

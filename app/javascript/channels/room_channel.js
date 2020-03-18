@@ -55,7 +55,7 @@ const chatChannel = consumer.subscriptions.create("RoomChannel", {
 // *** イベント処理 ***
 // リスト部状態更新処理
 function updateStatus(atdname, status) {
-  var list = $('.mbr')
+  var list = $('#atdlist .mbr')
   if(list.length > 0) {
       console.log('updateStatus: ' + atdname + ' to ' + status);
       list.each(function(idx, atd) {
@@ -69,7 +69,7 @@ function updateStatus(atdname, status) {
 
 // リスト部マーキング処理
 function marking() {
-  var list = $('.mbr');
+  var list = $('#atdlist .mbr')
   console.log(list.length);
   if(list.length > 0) {
       list.each(function(idx, mbr){
@@ -82,11 +82,11 @@ function marking() {
 }
 
 // 参加者追加処理
-function appendatd(atdid, text) {
-  console.log('append: ' + atdid + ',' + text);
+function appendatd(mbrid, text) {
+  console.log('append: ' + mbrid + ',' + text);
   var found = false;
   $('#atdlist').find('.mbr').each( function(idx, elm) {
-    if(elm.getElementsByTagName('input')[1].value == atdid) {
+    if(elm.getElementsByTagName('input')[1].value == mbrid) {
       found = true;
     }
   });
@@ -96,13 +96,13 @@ function appendatd(atdid, text) {
 }
 
 // 参加者削除処理
-function deleteatd(atdid) {
-  console.log('delete atd: ' + atdid);
-  var list = $('.mbr');
+function deleteatd(mbrid) {
+  console.log('delete mbr: ' + mbrid);
+  var list = $('#atdlist .mbr');
   if(list.length > 0) {
       list.each(function(idx, mbr){
-        var atdidofmbr = mbr.getElementsByTagName('input')[1].getAttribute('value');
-        if(atdidofmbr == atdid) {
+        var mbridofatd = mbr.getElementsByTagName('input')[1].getAttribute('value');
+        if(mbridofatd == mbrid) {
           console.log('  removed')
           mbr.parentNode.removeChild(mbr);
         }
