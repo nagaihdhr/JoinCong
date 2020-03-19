@@ -35,7 +35,7 @@ class MemberController < ApplicationController
     session[:attendant_id] = atd[:id]
 
     @attendants = Attendant.all.records
-    @sankasu = @attendants.inject(0) {|sum, atd| sum += atd.mbrsutoday}
+    @count = @attendants.inject(0) {|sum, atd| sum += atd.mbrsutoday}
   end
 
   def leave
