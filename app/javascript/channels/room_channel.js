@@ -145,6 +145,23 @@ $('*').on('click', function(e) {
 //    })
 //    .faile(function(xhr){
     });
+    chatChannel.speak(['msg', msg]);
+  }
+ 
+  // 送信ボタンの時: メッセージを書き込む->メッセージ配信
+  if($('#viewname').val() == 'mecha' && e.target.getAttribute('id') == 'btnsend') {
+    var msg = $('#msgbox').val();
+    $.ajax({
+      url: 'mecha/message',
+      type: 'GET',
+      data: {
+        text: msg
+      }
+//    })
+//    .done(function(response) {
+//    })
+//    .faile(function(xhr){
+    });
     
     chatChannel.speak(['msg', msg]);
   }
