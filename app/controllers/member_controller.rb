@@ -18,7 +18,7 @@ class MemberController < ApplicationController
     @ctl = Control.first(1)[0]
     @atdname = session[:atdname]
     id = session[:id]
-    @sankasu = params['mbrsutoday'].to_i + 1
+    @sankasu = params['mbrsutoday'].to_i
     # attendants 更新
     atd = Attend.find_by(member_id: id.to_i)
     if !!atd
