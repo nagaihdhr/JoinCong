@@ -70,11 +70,14 @@ body {
 }
 
 #memberlist {
-    width:480px;
+    width:100%;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
+
 .mbrname {
     width: 120px;
     height: 40px; 
@@ -93,10 +96,12 @@ body {
 }
 
 #atdlist {
-    width:480px;
+    width:100%;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
 #atdlist .mbr {
     width: 120px;
