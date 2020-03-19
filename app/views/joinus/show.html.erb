@@ -1,9 +1,11 @@
 <input type='hidden' id='viewname' value='joinus'>
-<h1>集会支援サービス</h1>
+<div id='pageheader'><span id='pagetitle'>集会支援サービス</span></div>
 <div>
   <p><%= @ctl.congname %></p>
   <p><%= @ctl.curdate %></p>
-  <p><span id='msgarea'><%= @ctl.message %></span></p>
+<div id='msgarea'>
+<span id='message'><%= @ctl.message %></span>
+</div>
 </div>
 <div id='atdlist'>
   <p><%= link_to '一般', {controller: 'member', action: 'show'}, method: :post %></p>

@@ -1,3 +1,105 @@
 // Place all the styles related to the joinus controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+body {
+    width: 100%;
+    text-align: center;
+}
+
+#pageheader {
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#pageheader #back {
+}
+
+#pageheader #pagetitle {
+    font-size: x-large;
+    font-weight: bold;
+    margin-left: 30px;
+    margin-right: 40px;
+}
+
+#pageheader #atdname {
+    width: 300px;
+    font-size: x-large;
+    font-weight: bold;
+    margin-left: 20px;
+    margin-right: 20px
+}
+
+#pageheader #btnatend {
+}
+
+#pageheader .btnfunc {
+    width:45px;
+    height: 24px;
+}
+
+#btnarea {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+#btnarea .btnmsg {
+    width:70px;
+    height: 24x;
+}
+
+.clear {
+    clear: both;
+}
+
+#txtarea {
+    margin-top: 4px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 4px;
+}
+
+#msgarea {
+    width: 400px;
+    margin-top: 8px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+#memberlist {
+    width:480px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+.mbrname {
+    width: 120px;
+    height: 75px; 
+    float: left;
+}
+
+#ninzu #qabox {
+}
+
+#ninzu #ans {
+    text-align: center;
+}
+
+#ninzu #submit {
+    margin-left: 10px;
+}
+
+#atdlist {
+    width:480px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+#atdlist .mbr {
+    width: 120px;
+    height: 75px; 
+    float: left;
+}

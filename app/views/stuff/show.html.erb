@@ -1,11 +1,11 @@
 <input type='hidden' id='viewname' value='stuff'>
-<div>
-<%= link_to '戻る', joinus_path %>
-<%= @stfname %>
-<span><%= @count %></span>
+<div id='pageheader'>
+<%= link_to '戻る', joinus_path, id: 'back' %>
+<span id='pagetitle'><%= @stfname %></span>
 </div>
-<div>
-<span id='msgarea'><%= @ctl.message %></span>
+<div id='msgarea'><span id='message'><%= @ctl.message %></span></div>
+<br class='clear' />
+<div class='label'><span>参加者リスト</span><span>（ネット聴衆者数　<%= @count %>　人）</span>
 </div>
 <div id='atdlist'>
 <%= render partial: 'layouts/attendant', collection: @attendants %>

@@ -1,11 +1,13 @@
 <input type='hidden' id='viewname' value='member'>
-<div>
-<%= link_to '戻る', joinus_path %>
-<span>参加しましょう</span><br />
+<div id='pageheader'>
+<%= link_to '戻る', joinus_path, id: 'back' %>
+<span id='pagetitle'>参加しましょう</span><br />
 </div>
-<div>
-<span id='msgarea'><%= @ctl.message %></span>
+<div id='msgarea'>
+<span id='message'><%= @ctl.message %></span>
 </div>
-<div id='adtlist'>
+<br class='clear' />
+<div class='label'><span>メンバーリスト</span></span>
+<div id='memberlist'>
 <%= render partial: 'layouts/member', collection: @members %>
 </div>

@@ -1,20 +1,23 @@
 <input type='hidden' id='viewname' value='mecha'>
-<div>
-<%= link_to '戻る', joinus_path %>
-<span>音響</span>
-<span><%= @count %></span>
-<input type='button' value='URL'>
-<input type='button' value='ログ'>
+<div id='pageheader'>
+<%= link_to '戻る', joinus_path, id: 'back' %>
+<span id='pagetitle'>音響</span>
+<input type='button' class='btnfunc' value='URL'>
+<input type='button' class='btnfunc' value='ログ'>
 </div>
-<div>
+<div id='btnarea'>
 <%= render partial: 'layouts/message', collection: @messages %>
-<br />
+<br class='clear' />
+<div id='txtarea'>
 <input type='text' id='msgbox' size='25'>
 <input type='button' id='btnsend' value='送信'>
 </div>
-<div>
-<span id='msgarea'><%= @ctl.message %></span>
 </div>
+<div id='msgarea'>
+  <span id='message'><%= @ctl.message %></span>
+</div>
+<br class='clear' />
+<div class='label'><span>参加者リスト</span><span>（ネット聴衆者数　<%= @count %>　人）</span>
 <div id='atdlist'>
 <%= render partial: 'layouts/attendant', collection: @attendants %>
 </div>
