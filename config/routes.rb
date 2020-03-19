@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   post 'member' => 'member#show'
   get 'member/attend' => 'member#attend'
   post 'member/attend' => 'member#attend'
+  get 'member/updstatus' => 'member#updstatus'
   get 'member/ninzu' => 'member#ninzu'
   get 'member/leave' => 'member#leave'
   root 'joinus#show'

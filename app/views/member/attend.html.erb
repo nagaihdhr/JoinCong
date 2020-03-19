@@ -2,13 +2,14 @@
 <div id='pageheader'>
 <%= link_to '離席', member_leave_path(mbrid: @mbr_id), id: 'back' %>
 <span id='atdname'><%= @atdname %></span>
+<input type='hidden' id='atdmbrid' value="<%= @mbr_id %>">
 <input type='button' id='btnatend' value='挙手'><br />
 </div>
 <div id='msgarea'>
 <span id='message'><%= @ctl.message %></span>
 </div>
 <br class='clear' />
-<div><span>参加者リスト</span><span>（ネット聴衆者数　<%= @count %>　人）</span>
+<div><span>参加者リスト</span>（ネット聴衆者数　<span id='totalatdsu'><%= @count %></span>　人）</div>
 <div id='atdlist'>
 <%= render partial: 'layouts/attendant', collection: @attendants %>
 </div>

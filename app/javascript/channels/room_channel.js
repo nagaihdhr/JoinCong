@@ -32,13 +32,13 @@ const chatChannel = consumer.subscriptions.create("RoomChannel", {
     else if( message[0] == 'add' ) {
       if( $('#atdlist') != null ) {
         console.log('event add: ' + message);
-        appendatd(message[1], message[2]);
+        appendatd(message[1], message[2], message[3]);
       }
     }
     else if( message[0] == 'del' ) {
       console.log('event del: ' + message);
       if( $('#atdlist') != null ) {
-        deleteatd(message[1]);
+        deleteatd(message[1], message[2]);
       }
     }
     return true;
@@ -60,7 +60,7 @@ function updateStatus(atdname, status) {
       console.log('updateStatus: ' + atdname + ' to ' + status);
       list.each(function(idx, atd) {
           if($(atd).text().trim() == atdname) {
-              $(atd).find('input').val(status);
+              $(atd).find('.status').val(status);
               console.log( atdname + ' Status Changed' )
           }
       });
@@ -82,8 +82,8 @@ function marking() {
 }
 
 // 参加者追加処理
-function appendatd(mbrid, text) {
-  console.log('append: ' + mbrid + ',' + text);
+function appendatd(mbrid, text, mbrsu) {
+  console.log('append: ' + mbrid + ',' + text + ',' + mbrsu);
   var found = false;
   $('#atdlist').find('.mbr').each( function(idx, elm) {
     if(elm.getElementsByTagName('input')[1].value == mbrid) {
@@ -91,19 +91,22 @@ function appendatd(mbrid, text) {
     }
   });
   if(found == false) {
+    var atdsu = Number(document.getElementById('totalatdsu').innerText);
+    document.getElementById('totalatdsu').innerText = String(atdsu + mbrsu);
     $('#atdlist').append(text);
   }
 }
 
 // 参加者削除処理
-function deleteatd(mbrid) {
-  console.log('delete mbr: ' + mbrid);
-  var list = $('#atdlist .mbr');
+function deleteatd(mbrid, mbrsu) {
+  console.log('delete mbr: ' + mbrid, mbrsu);
+  var list = $('#atdlist').children('.mbr');
   if(list.length > 0) {
       list.each(function(idx, mbr){
         var mbridofatd = mbr.getElementsByTagName('input')[1].getAttribute('value');
         if(mbridofatd == mbrid) {
-          console.log('  removed')
+          var atdsu = Number(document.getElementById('totalatdsu').innerText);
+          document.getElementById('totalatdsu').innerText = String(atdsu - mbrsu);
           mbr.parentNode.removeChild(mbr);
         }
       });
@@ -127,6 +130,19 @@ $('*').on('click', function(e) {
     }
 
     $('#btnatend').css('background-color', btncolor);
+    var mbrid = document.getElementById('atdmbrid').getAttribute('value');
+    $.ajax({
+      url: 'updstatus',
+      type: 'GET',
+      data: {
+        mbrid: mbrid,
+        status: status
+      }
+//    })
+//    .done(function(response) {
+//    })
+//    .faile(function(xhr){
+    });
 
     chatChannel.speak(['stt', $('#atdname').text(), status]);
   }
