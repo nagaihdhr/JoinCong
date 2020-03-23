@@ -1,11 +1,11 @@
-<input type='hidden' id='viewname' value='ninzu'>
+<input type='hidden' id='viewname' value='member.ninzu'>
 <div id='pageheader'>
 <%= link_to '戻る', member_path, id: 'back' %>
 <span id='atdname'><%= params[:mbrname] %></span>
 </div>
 <div>
 <form id='ninzu' action='attend' mechod='post'>
-<p id='quest'>出席者のカウントにご協力願います。</p>
+<p id='quest'>出席者のカウントにご協力願います。<br />
 このエントリーでカウントする人数を教えてください。</p>
 <div id='qabox'>
 <input type='text' id='ans' name='mbrsutoday' value= "<%= params[:mbrsu] %>" size='3'>人

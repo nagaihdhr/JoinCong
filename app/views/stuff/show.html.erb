@@ -1,12 +1,15 @@
-<input type='hidden' id='viewname' value='stuff'>
+<input type='hidden' id='viewname' value='stuff.show'>
 <div id='pageheader'>
-<%= link_to '戻る', joinus_path, id: 'back' %>
-<span id='pagetitle'><%= @stfname %></span>
+  <%= link_to '戻る', joinus_path, id: 'back' %>
+  <span id='pagetitle'><%= @stfname %></span>
 </div>
-<div id='msgarea'><span id='message'><%= @ctl.message %></span></div>
+<div id='msgarea'><span id='message'>
+  <%= @ctl.message %></span>
+</div>
 <br class='clear' />
-<div class='label'><span>参加者リスト</span>（ネット聴衆者数　<span id='totalatdsu'><%= @count %></span>　人）</span>
+<div class='label'>
+  <span>参加者リスト</span>（ネット聴衆者数　<span id='totalatdsu'><%= @count %></span>　人）</span>
 </div>
 <div id='atdlist'>
-<%= render partial: 'layouts/attendant', collection: @attendants %>
+  <%= render partial: 'layouts/attendant', collection: @attendants %>
 </div>

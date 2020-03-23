@@ -1,2 +1,14 @@
-<div class='mbrname'><%= link_to member.mbrname, member_ninzu_path(:mbrname=>member.mbrname,
-    :id=>member.id, :mbrsu=>member.mbrsu), {class: 'addatd'} %></div>
+<% if session[:caller] == 'LP' then %>
+<div class='mbrname'>
+  <%= link_to member.mbrname, member_ninzu_path(:mbrname=>member.mbrname,
+    :id=>member.id, :mbrsu=>member.mbrsu), {class: 'addatd'} %>
+</div>
+<% else %>
+<div class='mbrname4crud'>
+  <span class='editname'><%= member.mbrname %></span>
+  <div class='editfunc'>
+  <%= link_to '編集', member_edit_path(mbrid: member.id) %>
+  <%= link_to "削除", member_delete_path(mbrid: member.id), :method => :delete, data: {:confirm => '削除しますか？'} %>
+  </div>
+</div>
+<% end %>

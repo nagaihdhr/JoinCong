@@ -1,0 +1,20 @@
+<input type='hidden' id='viewname' value='message.show'>
+<div id='pageheader'>
+<%= link_to '戻る', dashboad_show_path, id: 'back' %>
+<span id='pagetitle'>メッセージ一覧</span><br />
+</div>
+<br class='clear' />
+<div>
+  <%= form_with(url: 'new', method: 'get', local: true) do |f| %>
+    <div class="field">
+      <%= f.label(:msgabbr, '省略形') %>
+      <%= f.text_area :msgabbr %>
+      <%= f.submit('追加') %>
+  </div>
+<% end %>
+</div>
+<br class='clear' />
+<br />
+<div id='memberlist'>
+  <%= render partial: 'layouts/message', collection: @messages %>
+</div>

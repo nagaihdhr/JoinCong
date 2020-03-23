@@ -1,4 +1,4 @@
-<input type='hidden' id='viewname' value='joinus'>
+<input type='hidden' id='viewname' value='LP'>
 <div id='pageheader'><span id='pagetitle'>集会支援サービス</span></div>
 <div>
   <p><%= @ctl.congname %></p>
@@ -7,9 +7,10 @@
 <span id='message'><%= @ctl.message %></span>
 </div>
 </div>
-<div id='atdlist'>
+<div id='funclist'>
   <p><%= link_to '一般', {controller: 'member', action: 'show'}, method: :post %></p>
   <p><%= link_to '司会者', {controller: 'stuff', action: 'show', stfname: '司会者'}, method: :post %></p>
   <p><%= link_to '案内', {controller: 'stuff', action: 'show', stfname: '案内'}, method: :post %></p>
   <p><%= link_to '音響', {controller: 'mecha', action: 'show'}, method: :post %></p>
+  <p><%= link_to 'ダッシュボード', {controller: 'dashboad', action: 'show'}, method: :post %></p>
 </div>

@@ -1,0 +1,24 @@
+<input type='hidden' id='viewname' value='message.edit'>
+<div id='pageheader'>
+  <%= link_to '戻る', dashboad_show_path, id: 'back' %>
+  <span id='pagetitle'>メッセージ情報編集</span><br />
+</div>
+<br class='clear' />
+<% if session[:msgid] == nil then %>
+<%   actname = '登録' %>
+<% else %>
+<%   actname = '更新' %>
+<% end %><%= form_with model:@message, url: message_update_path, method: :post, local: true do |f| %>
+  <div class="fieldlong">
+    <%= f.label(:msgabbr, '省略名', class: 'fieldname')  %>
+    <%= f.text_field :msgabbr, value: @msgabbr, class: 'msgfield' %>
+  </div>
+  <div class="fieldlong">
+    <%= f.label(:msgtext, 'メッセージ', class: 'fieldname') %>
+    <%= f.text_field  :msgtext, value: @msgtext, class: 'msgfield' %>
+  </div>
+  <br class='clear' />
+  <div class="actions">
+    <%= submit_tag actname %>
+  </div>
+<% end %>

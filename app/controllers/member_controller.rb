@@ -5,9 +5,53 @@ class MemberController < ApplicationController
     @members = Member.all.records
   end
 
+# CRUD part
+  def show4crud
+    @members = Member.all.records
+  end
+
+  def edit
+    mbrid = params[:mbrid].to_i
+    @members = Member.find_by(id: mbrid)
+    @mbrname = @members.mbrname
+    @email = @members.email
+    @mbrsu = @members.mbrsu
+    session[:mbrid] = mbrid
+  end
+
+  def new
+    @members = Member.none
+    @mbrname = params[:mbrname]
+    @email = ''
+    @mbrsu = '1'
+    session[:mbrid] = nil
+    render :edit
+  end
+
+  def update
+    if session[:mbrid] == nil
+      # logger.debug params.inspect
+      permitted = params.permit(:mbrname, :email, :mbrsu)
+      member = Member.create(permitted)
+      member.save
+    else
+      member = Member.find_by(id: session[:mbrid])
+      permitted = params.permit(:mbrname, :email, :mbrsu)
+      member.update(permitted)
+    end
+    session[:mbrid] = nil
+    redirect_to :action => 'show4crud'
+  end
+
+  def delete
+    member = Member.find_by(id: params[:mbrid])
+    member.destroy
+    redirect_to :action => 'show4crud'
+  end
+
+# Functional part
   def ninzu
     @ctl = Control.first(1)[0]
-    reset_session
     session[:atdname] = params['mbrname']
     session[:id] = params['id']
     @atdname = params['mbrname']

@@ -1,2 +1,8 @@
 
-<span class='msg'><input type='button' class='btnmsg' value="<%= message.msgabbr %>"><input type='hidden' class='msgtext' value="<%= message.msgtext %>"></span>
+<div class='field'>
+<span class='editname'><%= message.msgabbr %></span>
+<div class='editfunc'>
+  <%= link_to '編集', message_edit_path(msgid: message.id) %>
+  <%= link_to "削除", message_delete_path(msgid: message.id), :method => :delete, data: {:confirm => '削除しますか？'} %>
+</div>
+</div>

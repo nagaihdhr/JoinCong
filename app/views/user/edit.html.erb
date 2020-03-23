@@ -1,0 +1,23 @@
+<input type='hidden' id='viewname' value='user.edit'>
+<div id='pageheader'>
+  <%= link_to '戻る', dashboad_show_path, id: 'back' %>
+  <span id='pagetitle'>パスワード編集</span><br />
+</div>
+<br class='clear' />
+<%= form_with model:@user, url: user_update_path, method: :post, local: true do |f| %>
+  <div class="fieldlong">
+    <%= f.label(:usrname, 'ユーザ名', class: 'fieldname')  %>
+    <%= f.text_field :usrname, value: @user.username, class: 'fieldvalue', disabled: true %>
+  </div>
+  <div class="fieldlong">
+    <%= f.label(:password, 'パスワード', class: 'fieldname') %>
+    <%= f.password_field  :password, value: @user.password, class: 'fieldvalue' %>
+  </div>
+  <div class="fieldlong">
+    <%= f.label(:password_confirmation, 'パスワードの確認', class: 'fieldname') %>
+    <%= f.password_field  :password_confirmation, value: @user.password_confirmation , class: 'fieldvalue' %>
+  </div>
+  <div class="actions">
+    <%= submit_tag '更新' %>
+  </div>
+<% end %>

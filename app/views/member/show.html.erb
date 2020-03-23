@@ -1,7 +1,7 @@
-<input type='hidden' id='viewname' value='member'>
+<input type='hidden' id='viewname' value='member.show'>
 <div id='pageheader'>
-<%= link_to '戻る', joinus_path, id: 'back' %>
-<span id='pagetitle'>参加しましょう</span><br />
+  <%= link_to '戻る', joinus_path, id: 'back' %>
+  <span id='pagetitle'>参加しましょう</span><br />
 </div>
 <div id='msgarea'>
 <span id='message'><%= @ctl.message %></span>
@@ -9,5 +9,5 @@
 <br class='clear' />
 <div class='label'><span>メンバーリスト</span></div>
 <div id='memberlist'>
-<%= render partial: 'layouts/member', collection: @members %>
+  <%= render partial: 'layouts/member', collection: @members %>
 </div>

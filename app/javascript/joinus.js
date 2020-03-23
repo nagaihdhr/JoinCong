@@ -29,7 +29,7 @@ function marking() {
   
 // 画面表示時: リスト部マーキング
 document.addEventListener("DOMContentLoaded", function() {
-    if(['attend', 'stuff', 'mecha'].indexOf($('#viewname').val()) >= 0) {
+    if(['member.attend', 'stuff.show', 'mecha.show'].indexOf($('#viewname').val()) >= 0) {
         marking();
     }
 });

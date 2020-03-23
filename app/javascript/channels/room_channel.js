@@ -115,6 +115,7 @@ function deleteatd(mbrid, mbrsu) {
 
 // クリック時（メンバーリストアイテム、挙手ボタン、メッセージボタン、離席ボタン）:
 $('*').on('click', function(e) {
+  // console.log($('#viewname').val() + ', ' + e.target.getAttribute('class'));
   // メンバーリストアイテムクリックの時: 人数指定に遷移する
   if(e.target.getAttribute('class') == 'addatd') {
     console.log('参加者 SELECTED');
@@ -148,7 +149,7 @@ $('*').on('click', function(e) {
   }
 
   // メッセージボタンの時: メッセージを書き込む->メッセージ配信
-  if($('#viewname').val() == 'mecha' && e.target.getAttribute('class') == 'btnmsg') {
+  if($('#viewname').val() == 'mecha.show' && e.target.getAttribute('class') == 'btnmsg') {
     var msg = e.target.parentNode.childNodes.item(1).getAttribute('value');
     $.ajax({
       url: 'mecha/message',
@@ -165,7 +166,7 @@ $('*').on('click', function(e) {
   }
  
   // 送信ボタンの時: メッセージを書き込む->メッセージ配信
-  if($('#viewname').val() == 'mecha' && e.target.getAttribute('id') == 'btnsend') {
+  if($('#viewname').val() == 'mecha.show' && e.target.getAttribute('id') == 'btnsend') {
     var msg = $('#msgbox').val();
     $.ajax({
       url: 'mecha/message',

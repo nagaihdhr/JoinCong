@@ -1,0 +1,27 @@
+<input type='hidden' id='viewname' value='member.edit'>
+<div id='pageheader'>
+<%= link_to '戻る', member_show4crud_path, id: 'back' %>
+<span id='pagetitle'>メンバー情報編集</span><br />
+</div>
+<% if session[:mbrid] == nil then %>
+<%   actname = '登録' %>
+<% else %>
+<%   actname = '更新' %>
+<% end %>
+<%= form_with url: member_update_path, method: :post, local: true do |f| %>
+  <div class="field">
+    <%= f.label(:mbrname, 'メンバー名', class: 'fieldname')  %>
+    <%= f.text_field :mbrname, value: @mbrname, class: 'fieldvalue' %>
+  </div>
+  <div class="field">
+    <%= f.label(:email, 'E-Mail', class: 'fieldname') %>
+    <%= f.text_field :email, value: @email, class: 'fieldvalue' %>
+  </div>
+  <div class="field">
+    <%= f.label(:mbrsu, '聴衆者数', class: 'fieldname') %>
+    <%= f.text_field :mbrsu, value: @mbrsu, class: 'fieldvalue' %>
+  </div>
+  <div class="actions">
+    <%= submit_tag actname %>
+  </div>
+<% end %>

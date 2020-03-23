@@ -1,0 +1,29 @@
+<input type='hidden' id='viewname' value='member'>
+<div id='pageheader'>
+<%= link_to '戻る', joinus_path, id: 'back' %>
+<span id='pagetitle'>参加しましょう</span><br />
+</div>
+<% if session[:caller] == 'LP' then %>
+<div id='msgarea'>
+<span id='message'><%= @ctl.message %></span>
+</div>
+<% end %>
+<br class='clear' />
+<div class='label'><span>メンバーリスト</span></div>
+<% if session[:caller] == 'LP' then %>
+<div id='memberlist'>
+<% else %>
+<div>
+<% end %>
+<%= render partial: 'layouts/member', collection: @members %>
+<br class='clear' />
+</div>
+<% if session[:caller] == 'dashboad' then %>
+<%= form_with(url: 'create_path', method: 'get', local: true) do |f| %>
+  <div class="field">
+    <%= f.label(:mbrname, 'メンバー名') %>
+    <%= f.text_area :mbrname %>
+    <%= f.submit('追加') %>
+  </div>
+<% end %>
+<% end %>

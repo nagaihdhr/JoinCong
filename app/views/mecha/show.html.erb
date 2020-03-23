@@ -1,17 +1,17 @@
-<input type='hidden' id='viewname' value='mecha'>
+<input type='hidden' id='viewname' value='mecha.show'>
 <div id='pageheader'>
-<%= link_to '戻る', joinus_path, id: 'back' %>
-<span id='pagetitle'>音響</span>
-<input type='button' class='btnfunc' value='URL'>
-<input type='button' class='btnfunc' value='ログ'>
+  <%= link_to '戻る', joinus_path, id: 'back' %>
+  <span id='pagetitle'>音響</span>
+  <input type='button' class='btnfunc' value='URL'>
+  <input type='button' class='btnfunc' value='ログ'>
 </div>
 <div id='btnarea'>
-<%= render partial: 'layouts/message', collection: @messages %>
-<br class='clear' />
-<div id='txtarea'>
-<input type='text' id='msgbox' size='25'>
-<input type='button' id='btnsend' value='送信'>
-</div>
+  <%= render partial: 'layouts/btnmsg', collection: @btnmsgs %>
+  <br class='clear' />
+  <div id='txtarea'>
+    <input type='text' id='msgbox' size='25'>
+    <input type='button' id='btnsend' value='送信'>
+  </div>
 </div>
 <div id='msgarea'>
   <span id='message'><%= @ctl.message %></span>
