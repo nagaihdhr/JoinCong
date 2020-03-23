@@ -1,2 +1,2 @@
-module DashboadHelper
+module DboadHelper
 end
