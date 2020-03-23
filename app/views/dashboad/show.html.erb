@@ -1,0 +1,12 @@
+<input type='hidden' id='viewname' value='dashboad'>
+<div id='pageheader'>
+<%= link_to '戻る', joinus_path, id: 'back' %>
+<span id='pagetitle'>ダッシュボード</span>
+</div>
+<br class='clear' />
+<div id='funclist'>
+  <p><span id='guidance'><%= @ctl.congname %></span></p>
+  <p><%= link_to 'パスワード変更', {controller: 'user', action: 'show'}, method: :get %></p>
+  <p><%= link_to 'メンバー編集', {controller: 'member', action: 'show4crud'}, method: :get %></p>
+  <p><%= link_to 'メッセージ編集', {controller: 'message', action: 'show'}, method: :get %></p>
+</div>
